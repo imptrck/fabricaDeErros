@@ -12,33 +12,40 @@ public class FactoryError {
 		memoryTest.generateOOM();
 	}
 
-	public void generateOOM() throws Exception {
+	public void generateOOM() {
 
 		int iteratorValue = 20;
 
 		System.out.println("\n=================> OOM Início teste..\n");
 
-		for (int outerIterator = 1; outerIterator < 20; outerIterator++) {
+		try {
 
-			System.out.println("Iteration " + outerIterator + " Free Mem: " + Runtime.getRuntime().freeMemory());
+			for (int outerIterator = 1; outerIterator < 20; outerIterator++) {
 
-			int loop1 = 2;
+				System.out.println("Iteration " + outerIterator + " Free Mem: " + Runtime.getRuntime().freeMemory());
 
-			int[] memoryFillIntVar = new int[iteratorValue];
+				int loop1 = 2;
 
-			// feel memoryFillIntVar array in loop..
-			do {
-				memoryFillIntVar[loop1] = 0;
-				loop1--;
-			} while (loop1 > 0);
+				int[] memoryFillIntVar = new int[iteratorValue];
 
-			iteratorValue = iteratorValue * 5;
+				// feel memoryFillIntVar array in loop..
+				do {
+					memoryFillIntVar[loop1] = 0;
+					loop1--;
+				} while (loop1 > 0);
 
-			System.out.println("\nRequired Memory for next loop: " + iteratorValue);
+				iteratorValue = iteratorValue * 5;
 
-			Thread.sleep(1000);
+				System.out.println("\nRequired Memory for next loop: " + iteratorValue);
+
+				Thread.sleep(1000);
+			}
 		}
-		
+
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+
 	}
 
 	public void generateDeadLock() {
