@@ -19,16 +19,22 @@
 	<h:form>
 
 		<div id="buttons">
-			<h:commandButton styleClass="deadlock" action="#{factoryDeadLock.generateDeadLock()}"
+			
+			<h:commandButton styleClass="deadlock"
+				action="#{factoryDeadLock.generateDeadLock()}"
 				value="Generate Dead Lock" />
-			<h:commandButton styleClass="oome" action="#{factoryError.generateOOM()}"
+				
+			<h:inputText id="number" styleClass="campo" value="#{factoryError.iteracao}" />
+			
+			<h:commandButton styleClass="oome"
+				action="#{factoryError.generateOOM()}"
 				value="Generate Out of Memory Error" />
 		</div>
-		
+
 		<div id="error">
-		
-		<!-- Aqui será mostrado o erro gerado pelos botões -->
-		
+
+			<!-- Aqui será mostrado o erro gerado pelos botões -->
+
 		</div>
 
 	</h:form>

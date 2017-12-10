@@ -30,17 +30,6 @@ h1{
 	background-clip: content-box;
 	border: 150px;
 	
-	
-}
-
-.campo{
-	border:solid 1px #e0e0e0;
-	height: 50px;
-	width: 80px;
-	font-size: 50px;
-	padding-left: 10px;
-	margin-left: 80px;
-	
 }
 
 .oome{
@@ -52,10 +41,6 @@ h1{
 	font-style: oblique;
 	background-clip: content-box;
 	border: 150px;
-}
-
-#error{
-	
 	
 }
 

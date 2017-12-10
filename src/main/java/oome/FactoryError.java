@@ -1,6 +1,8 @@
 package oome;
 
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
+import javax.faces.context.FacesContext;
 
 @ManagedBean
 public class FactoryError {
@@ -20,7 +22,7 @@ public class FactoryError {
 
 		try {
 
-			for (int outerIterator = 1; outerIterator < 20; outerIterator++) {
+			for (int outerIterator = 1; outerIterator < iteracao; outerIterator++) {
 
 				System.out.println("Iteration " + outerIterator + " Free Mem: " + Runtime.getRuntime().freeMemory());
 
@@ -43,7 +45,10 @@ public class FactoryError {
 		}
 
 		catch (Exception e) {
-			e.printStackTrace();
+			
+			FacesContext.getCurrentInstance().addMessage("msg",
+					new FacesMessage(FacesMessage.SEVERITY_ERROR, "Out of Memory Error", ""));
+			//e.printStackTrace();
 		}
 
 	}
