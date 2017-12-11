@@ -2,9 +2,13 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>br.com.redhat</groupId>
-	<artifactId>sample</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<artifactId>fabrica</artifactId>
+	<version>1.0</version>
 	<packaging>war</packaging>
+
+        <build>
+            <finalName>${artifactId}</finalName>
+        </build>
 
 	<dependencies>
 		<dependency>
