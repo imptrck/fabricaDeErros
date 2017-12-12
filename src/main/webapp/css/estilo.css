@@ -9,15 +9,15 @@ h1{
 }
 
 #header{
-	height: 150px;
+	height: 70px;
 	width: auto;
-	background-color: red;
+	background-color: black;
 	padding: 0px;
 	
 }
 
 #buttons{
-	padding-top:150px;
+	padding-top:100px;
 	text-align: center;
 }
 

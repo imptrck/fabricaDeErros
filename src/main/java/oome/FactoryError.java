@@ -26,13 +26,12 @@ public class FactoryError {
 
 				System.out.println("Iteration " + outerIterator + " Free Mem: " + Runtime.getRuntime().freeMemory());
 
-				int loop1 = 2;
+				int loop1 = 5;
 
-				int[] memoryFillIntVar = new int[iteratorValue];
+				String[] memoryFillIntVar = new String[iteratorValue];
 
-				// feel memoryFillIntVar array in loop..
 				do {
-					memoryFillIntVar[loop1] = 0;
+					memoryFillIntVar[loop1] = "outofmemoryerror outofmemoryerror outofmemoryerror outofmemoryerror outofmemoryerror";
 					loop1--;
 				} while (loop1 > 0);
 
@@ -40,7 +39,6 @@ public class FactoryError {
 
 				System.out.println("\nRequired Memory for next loop: " + iteratorValue);
 
-				Thread.sleep(1000);
 			}
 		}
 
