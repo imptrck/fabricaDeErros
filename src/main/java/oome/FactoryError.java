@@ -1,18 +1,11 @@
 package oome;
 
-import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
-import javax.faces.context.FacesContext;
 
 @ManagedBean
 public class FactoryError {
 
 	private int iteracao;
-
-	public static void main(String[] args) throws Exception {
-		FactoryError memoryTest = new FactoryError();
-		memoryTest.generateOOM();
-	}
 
 	public void generateOOM() {
 
@@ -20,38 +13,52 @@ public class FactoryError {
 
 		System.out.println("\n=================> OOM Início teste..\n");
 
-		try {
+		for (int outerIterator = 1; outerIterator < iteracao; outerIterator++) {
 
-			for (int outerIterator = 1; outerIterator < iteracao; outerIterator++) {
+			System.out.println("Iteration " + outerIterator + " Free Mem: " + Runtime.getRuntime().freeMemory());
 
-				System.out.println("Iteration " + outerIterator + " Free Mem: " + Runtime.getRuntime().freeMemory());
+			int loop1 = 5;
 
-				int loop1 = 5;
+			String[] memoryFillIntVar = new String[iteratorValue];
 
-				String[] memoryFillIntVar = new String[iteratorValue];
+			do {
+				memoryFillIntVar[loop1] = "outofmemoryerror outofmemoryerror outofmemoryerror outofmemoryerror outofmemoryerror";
+				loop1--;
+			} while (loop1 > 0);
 
-				do {
-					memoryFillIntVar[loop1] = "outofmemoryerror outofmemoryerror outofmemoryerror outofmemoryerror outofmemoryerror";
-					loop1--;
-				} while (loop1 > 0);
+			iteratorValue = iteratorValue * 5;
 
-				iteratorValue = iteratorValue * 5;
+			System.out.println("\nRequired Memory for next loop: " + iteratorValue);
 
-				System.out.println("\nRequired Memory for next loop: " + iteratorValue);
-
-			}
 		}
+	}
 
-		catch (Exception e) {
-			
-			FacesContext.getCurrentInstance().addMessage("msg",
-					new FacesMessage(FacesMessage.SEVERITY_ERROR, "Out of Memory Error", ""));
-			//e.printStackTrace();
+	/**
+	 * Out of memory causado por threads
+	 */
+	public void ooomeByThread() {
+
+		for (int i = 0; true; ++i) {
+			new Thread() {
+				public void run() {
+					try {
+						Thread.sleep(1000000);
+					} catch (InterruptedException e) {
+					}
+				}
+			}.start();
+
+			System.out.println("Thread " + i + " created");
 		}
 
 	}
+	
+	public void ooomeByVector() {
 
-	public void generateDeadLock() {
+		//int[] matrix = new int[Integer.MAX_VALUE];
+		int[] matrix = new int[Integer.MAX_VALUE];
+		for (int i = 0; i < matrix.length; ++i)
+			matrix[i] = i + 1;
 
 	}
 
