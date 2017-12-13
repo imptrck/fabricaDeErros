@@ -12,23 +12,33 @@
 	<div id="header">
 
 		<img src="css/l_redhat-reverse.png" alt="RedHatlogo" id="rhlogo" />
-		
+
 
 	</div>
 
 	<h:form>
 
 		<div id="buttons">
-			
+
 			<h:commandButton styleClass="deadlock"
 				action="#{factoryDeadLock.generateDeadLock()}"
 				value="Generate Dead Lock" />
-				
-			<h:inputText id="number" styleClass="campo" value="#{factoryError.iteracao}" />
-			
+
+			<!-- h:inputText id="number" styleClass="campo"
+				value="#{factoryError.iteracao}" />
+
 			<h:commandButton styleClass="oome"
 				action="#{factoryError.generateOOM()}"
-				value="Generate Out of Memory Error" />
+				value="Generate Out of Memory Error" / -->
+				
+			<h:commandButton styleClass="oome"
+				action="#{factoryError.ooomeByThread()}"
+				value="Out of Memory Error by Thread" />
+				
+			<h:commandButton styleClass="oome"
+				action="#{factoryError.ooomeByVector()}"
+				value="Out of Memory Error by Vector" />
+				
 		</div>
 
 		<div id="error">
