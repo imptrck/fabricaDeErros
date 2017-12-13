@@ -1,5 +1,7 @@
 package oome;
 
+import java.util.Vector;
+
 import javax.faces.bean.ManagedBean;
 
 @ManagedBean
@@ -55,10 +57,11 @@ public class FactoryError {
 	
 	public void ooomeByVector() {
 
-		//int[] matrix = new int[Integer.MAX_VALUE];
-		int[] matrix = new int[Integer.MAX_VALUE];
-		for (int i = 0; i < matrix.length; ++i)
-			matrix[i] = i + 1;
+		Vector v = new Vector();
+		while (true) {
+			byte b[] = new byte[1048576];
+			v.add(b);
+		}
 
 	}
 
