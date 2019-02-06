@@ -40,7 +40,7 @@ public class FactoryError {
 	 */
 	public void ooomeByThread() {
 
-		for (int i = 0; true; ++i) {
+		for (int i = 0; i<1000; ++i) {
 			new Thread() {
 				public void run() {
 					try {
@@ -58,8 +58,8 @@ public class FactoryError {
 	public void ooomeByVector() {
 
 		Vector v = new Vector();
-		while (true) {
-			byte b[] = new byte[1048576];
+		for (int i=0;i<10000;i++) {
+			byte b[] = new byte[40000];
 			v.add(b);
 		}
 
