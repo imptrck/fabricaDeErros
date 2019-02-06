@@ -5,7 +5,9 @@ It now generates GC logs to test Wildfly/JBoss EAP.
 Use it:
 
 
-- clone it
-- mvn clean package wildfly:deploy
+1. clone it
+2. mvn clean package wildfly:deploy
+3. use the web interface at localhost:9990/fabrica, third buttom.
+
 
 
