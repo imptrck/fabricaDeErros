@@ -9,5 +9,5 @@ Use it:
 2. mvn clean package wildfly:deploy
 3. use the web interface at localhost:9990/fabrica, third buttom.
 
-
+:)
 
